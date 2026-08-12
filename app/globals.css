@@ -158,6 +158,14 @@ input[type="submit"] {
   margin: 0 auto;
   padding: 0 15px;
 }
+.container:before,
+.container:after {
+  content: "";
+  display: table;
+}
+.container:after {
+  clear: both;
+}
 
 .row {
   display: flex;
@@ -309,9 +317,11 @@ input[type="submit"] {
 }
 .home-about-left {
   width: 58.3333%;
+  padding: 0;
 }
 .home-about-right-col {
   width: 41.6667%;
+  padding: 0;
 }
 .home-about-left h4 {
   position: relative;
@@ -340,7 +350,7 @@ input[type="submit"] {
   background: rgba(255, 182, 71, 0.8);
   padding: 60px 40px;
   position: relative;
-  max-width: 740px;
+  width: 740px;
   z-index: 9;
 }
 .home-about-left .home-about-left-text p {
@@ -358,6 +368,9 @@ input[type="submit"] {
    What We Do
    ========================================================================== */
 
+.what-we-do {
+  background-color: #222;
+}
 .what-we-do .row {
   align-items: stretch;
 }
@@ -368,6 +381,11 @@ input[type="submit"] {
   width: 41.6667%;
   display: flex;
   align-items: center;
+}
+.what-do-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .what-do-left-text {
   max-width: 590px;
@@ -387,9 +405,6 @@ input[type="submit"] {
   margin: 0 0 27px;
   background-image: url(/images/sprite-what-do.png);
   background-repeat: no-repeat;
-  min-height: 40px;
-  display: flex;
-  align-items: center;
 }
 .icon-do-one {
   background-position: 0 0;
@@ -457,7 +472,6 @@ input[type="submit"] {
   width: auto;
   max-width: 100%;
   float: right;
-  object-fit: cover;
 }
 .why-use-text {
   padding: 100px 260px 0 190px;
@@ -597,11 +611,13 @@ input[type="submit"] {
   padding-top: 25px;
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   position: relative;
   z-index: 2;
 }
 .community-work > div {
   width: 50%;
+  padding: 0 15px;
 }
 .community-work-content {
   background: rgba(0, 0, 0, 0.5);
@@ -610,7 +626,6 @@ input[type="submit"] {
   font-size: 14px;
   line-height: 25px;
   text-align: justify;
-  height: 100%;
 }
 .community-work-heading {
   color: #fff;
@@ -652,6 +667,15 @@ input[type="submit"] {
   color: #fff;
   font-size: 14px;
   text-transform: uppercase;
+}
+.map-link-body a:before {
+  content: "";
+  width: 28px;
+  height: 32px;
+  background: url(/images/map-link.png) no-repeat left 0;
+  position: absolute;
+  left: -45px;
+  top: 0;
 }
 .map-link-body a:hover {
   color: #fff;
@@ -745,7 +769,8 @@ input[type="submit"] {
 }
 .c-info li h5::after,
 .c-form h5::after {
-  background-color: #ffb546;
+  background: #ffb546 url(/images/sep3.png) no-repeat;
+  display: table;
   bottom: 0;
   content: "";
   height: 1px;
@@ -913,7 +938,7 @@ input[type="submit"] {
     text-align: center;
   }
   .home-about-left-text {
-    max-width: 95%;
+    width: 95%;
     padding: 25px;
   }
   .what-do-left-text li:last-child {
@@ -1038,7 +1063,7 @@ input[type="submit"] {
     padding: 15px 0 0;
   }
   .home-about-left-text {
-    max-width: 100%;
+    width: 100%;
   }
   .why-use-text {
     padding: 30px 15px;
