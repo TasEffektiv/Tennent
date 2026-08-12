@@ -33,6 +33,18 @@ img {
   margin: 0;
 }
 
+/* Netlify Forms honeypot: kept in the tab order and rendered (not
+   display:none/type=hidden) but moved off-screen, since some spam bots
+   and browser autofill skip fields hidden those other ways. */
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 h1,
 h2,
 h3,

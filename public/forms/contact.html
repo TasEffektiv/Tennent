@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Contact — Tennent</title>
+  </head>
+  <body>
+    <!--
+      Static, non-JS shadow copy of the "contact" form rendered by
+      app/components/ContactFooter.tsx. Netlify's form detection only scans
+      static HTML at deploy time, so this file exists purely so Netlify
+      registers the "contact" form — it is not meant to be visited directly.
+      Field names here must stay in sync with the React version.
+    -->
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <p style="position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; overflow: hidden;">
+        <label>
+          Leave this field blank
+          <input name="bot-field" />
+        </label>
+      </p>
+      <p>
+        <label>Name* <input type="text" name="name" /></label>
+      </p>
+      <p>
+        <label>Telephone* <input type="text" name="telephone" /></label>
+      </p>
+      <p>
+        <label>Email* <input type="email" name="email" /></label>
+      </p>
+      <p>
+        <label>Enquiry* <textarea name="message"></textarea></label>
+      </p>
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+    </form>
+  </body>
+</html>

@@ -43,10 +43,15 @@ export default function ContactFooter() {
     setStatus("sending");
 
     try {
-      const res = await fetch("/api/contact", {
+      // POST to the static shadow form (public/forms/contact.html), not "/" —
+      // "/" is handled by the Next.js server, and Netlify's forms proxy can't
+      // intercept submissions routed into an app server function.
+      const res = await fetch("/forms/contact.html", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(data)),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(
+          Object.fromEntries(data) as Record<string, string>
+        ).toString(),
       });
       if (res.ok) {
         setStatus("sent");
@@ -123,7 +128,22 @@ export default function ContactFooter() {
                 )}
               </div>
 
-              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+              <form
+                className="contact-form"
+                name="contact"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                noValidate
+                {...{ netlify: "true" }}
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hp-field">
+                  <label>
+                    Leave this field blank
+                    <input name="bot-field" />
+                  </label>
+                </p>
                 <div className="form-row">
                   <div className="form-col">
                     <input type="text" placeholder="Name*" name="name" />
